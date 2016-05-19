@@ -1,0 +1,88 @@
+/* Empty. Add your own CSS if you like */
+.loginCSS {
+    background: url(../img/loginBackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    z-index: 2;
+    position: relative;
+}
+
+
+.ReportNewSightDiv {
+    background-color: #E5E4E2;
+    text-align: center;
+}
+
+.slide-in-right {
+  -webkit-transform: translateX(100%);
+    transform: translateX(100%); }
+
+.slide-in-right.ng-enter, .slide-in-right > .ng-enter {
+  -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; }
+
+.slide-in-right.ng-enter-active, .slide-in-right > .ng-enter-active {
+  -webkit-transform: translateX(0);
+    transform: translateX(0); }
+
+.slide-in-right.ng-leave, .slide-in-right > .ng-leave {
+  -webkit-transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms; }
+
+.scroll {
+      height: 100%;
+  }
+
+#map {
+      width: 100%;
+      height: 100%;
+  }
+
+#map1 {
+      width: 100%;
+      height: 80%;
+  }
+
+  .style-4 input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-bottom: solid 3px #c9c9c9;
+    background: transparent;
+    transition: border 0.3s;
+  }
+  .style-4 input[type="text"]:focus,
+  .style-4 input[type="text"].focus {
+    border-bottom: solid 3px #969696;
+  }
+
+  .style-4 input[type="password"] {
+    padding: 10px;
+    border: none;
+    border-bottom: solid 3px #c9c9c9;
+    background: transparent;
+    transition: border 0.3s;
+  }
+  .style-4 input[type="password"]:focus,
+  .style-4 input[type="password"].focus {
+    border-bottom: solid 3px #969696;
+  }
+
+  input::-webkit-input-placeholder {
+  color: #777777 !important;
+  }
+
+  input:-moz-placeholder { /* Firefox 18- */
+  color: #777777 !important;
+  }
+
+  input::-moz-placeholder {  /* Firefox 19+ */
+  color: #777777 !important;
+  }
+
+  input:-ms-input-placeholder {
+  color: #777777 !important;
+  }

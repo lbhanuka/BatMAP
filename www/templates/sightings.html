@@ -1,0 +1,26 @@
+<ion-view view-title="Bat Sightings" name="dashboard-view">
+  <ion-content class="padding">
+
+    <!--Report a new sighting-->
+    <div class="card ">
+      <div class="item item-body ReportNewSightDiv">
+        <small>Help us to improve the Bat Map by sharing your bat sightings.</small>
+        <div class="padding-top">
+          <button class="button button-positive" style="" ng-click="openModal()">
+            <b>Report a Sighting &nbsp;</b>
+            <i class = "icon icon ion-pin"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" ng-repeat="sighting in allAddresses">
+      <div class="item item-avatar">
+        <h2>{{sighting}}</h2>
+      </div>
+      <div class="item item-body">
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

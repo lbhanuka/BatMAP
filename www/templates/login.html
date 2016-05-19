@@ -1,0 +1,21 @@
+
+  <ion-view view-title="Sign-In" name="login-view">
+    <ion-view hide-nav-bar="true">
+    <div class="loginCSS">
+    <ion-content class="padding" style="overflow:hidden;">
+        <br>
+        <div >
+          <div class="padding-bottom">
+            <label class="input-list style-4 clearfix">
+                <input type="text" size="35" placeholder="Username" ng-model="data.username">
+            </label>
+          </div>
+            <label class="input-list style-4 clearfix">
+                <input type="password" size="35" placeholder="Password" ng-model="data.password">
+            </label>
+        </div>
+        <br>
+        <button class="button button-block button-positive" ng-click="login(data)">Login</button>
+    </ion-content>
+    </div>
+  </ion-view>

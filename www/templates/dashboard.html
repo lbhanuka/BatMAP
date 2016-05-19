@@ -1,0 +1,62 @@
+<ion-view view-title="Dashboard" name="dashboard-view">
+
+  <ion-nav-buttons side="right">
+    <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
+  </ion-nav-buttons>
+
+  <ion-content class="padding">
+
+    <!--card 01-->
+    <div class="card">
+      <div class="item item-avatar">
+        <img src="img/face1.jpg">
+        <h2>New study finds that common and widespread UK bat species are negatively affected by increased urbanisation</h2>
+      </div>
+      <div class="item item-body">
+        <img class="full-image" src="img/bat img 2.jpg">
+        A recent study, based on data collected by the National Bat Monitoring Programme (NBMP) suggests that even the most widespread and adaptable UK bat species, the common pipistrelle (Pipistrellus pipistrellus), is negatively affected by increasing urbanised areas
+      </div>
+    </div>
+
+    <!--card 02-->
+    <div class="card">
+      <div class="item item-avatar">
+        <img src="img/face2.jpg">
+        <h2>Time to Defend Nature again</h2>
+      </div>
+      <div class="item item-body">
+        <img class="full-image" src="img/bat img 3.jpg">
+        Over the last few months we have been working closely with other conservation and environmental organisations to make sure the Nature Directives review process is based on the best evidence available. We are now asking for your help in this process once again.
+      </div>
+    </div>
+
+    <!--card 03-->
+    <div class="card">
+      <div class="item item-avatar">
+        <img src="img/face3.jpg">
+        <h2>Cull of Flying Foxes in Mauritius</h2>
+      </div>
+      <div class="item item-body">
+        <img class="full-image" src="img/bat img 1.jpg">
+        A government cull of 18,000 Greater Mascarene Flying Foxes Pteropus niger has begun in Mauritius. Article by Prof Paul Racey
+      </div>
+    </div>
+
+    <div class="row"><div class="col text-center">
+      <h3 class="title">Welcome {{username}}!</h3>
+      This could be your Dashboard.
+      <br><br><br>
+      <button class="button button-full button-positive" ng-click="performValidRequest()">
+        Make Valid Request
+      </button>
+      <button class="button button-full button-energized" ng-click="performUnauthorizedRequest()">
+        Make Request for unauthorized resource
+      </button>
+      <button class="button button-full button-assertive" ng-click="performInvalidRequest()">
+        Make Request without valid token
+      </button>
+      <br><br>
+      {{response}}
+    </div></div>
+  </ion-content>
+</ion-view>

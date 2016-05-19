@@ -1,0 +1,148 @@
+<ion-modal-view ng-controller="ReportCtrl">
+   <ion-header-bar class="bar-balanced">
+      <h1 class = "title">Report a Bat Sighting</h1>
+   </ion-header-bar>
+
+   <ion-content>
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <div class="" style="float:left;">
+            <span class="input-label">When did you see your bat?</span>
+            <b><input type="date" ng-blur="dateFieldCheck()" ng-model="sighting.date"></b>
+          </div>
+          <div class="padding-right" id="report.date" style="float:right; padding-top: 5px;">
+          </div>
+        </label>
+
+        <label class="item item-input item-stacked-label" ng-click="openPopover1($event)">
+          <div class="" style="float:left;">
+            <span class="input-label">What time did you see it?</span>
+            <div style="text-align:left"><b>{{sighting.time}}</b></div>
+          </div>
+          <div class="padding-right" id="report.time" style="float:right; padding-top: 5px;">
+          </div>
+        </label>
+
+        <label class="item item-input item-stacked-label" ng-click = "openPopover2($event)">
+          <div class="" style="float:left;">
+            <span class="input-label">How many bats did you see?</span>
+            <div style="text-align:left"><b>{{sighting.count}}</b></div>
+          </div>
+          <div class="padding-right" id="report.count" style="float:right; padding-top: 5px;">
+          </div>
+       </label>
+
+        <label class="item item-input item-stacked-label" ng-click = "openPopover3($event)">
+          <div class="" style="float:left;">
+            <span class="input-label">Where was the bat?</span>
+            <div style="text-align:left"><b>{{sighting.where}}</b></div>
+          </div>
+          <div class="padding-right" id="report.where" style="float:right; padding-top: 5px;">
+          </div>
+        </label>
+
+        <div class="item item-input item-stacked-label ReportNewSightDiv" style="text-align:left;">
+          <div class="" style="float:left;">
+            <span class="">Set the location of the sighting.</span>
+            <div class="">
+              <button class = "button button-small button-positive" id="btn1" ng-click="openModal2()"><b>Locate in the map</b></button>
+              <button class = "button button-small button-positive" id="btn2" ng-click="getGPSLocation()"><b>Use current location</b></button>
+            </div>
+          </div>
+          <div class="padding-right" id="report.location" style="float:right; padding-top: 5px;">
+          </div>
+        </div>
+
+        <label class="item item-input item-stacked-label" ng-click="openPopover4($event)">
+          <div class="" style="float:left;">
+            <span class="input-label">Did you identify the species?</span>
+            <div style="text-align:left"><b>{{sighting.species}}</b></div>
+          </div>
+          <div class="padding-right" id="report.species" style="float:right; padding-top: 5px;">
+          </div>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Enything else you want to add?</span>
+          <textarea placeholder="Comments"></textarea>
+        </label>
+
+
+      </div>
+
+      <script id = "popover.html" type = "text/ng-template">
+      <style>.popover { height:240px; width:250px;}</style>
+         <ion-popover-view>
+           <ion-content>
+             <ion-radio ng-model="sighting.time" ng-value="'Morning'" ng-click = "closePopover1()">Morning</ion-radio>
+             <ion-radio ng-model="sighting.time" ng-value="'Daytime'" ng-click = "closePopover1()">Daytime</ion-radio>
+             <ion-radio ng-model="sighting.time" ng-value="'Evening'" ng-click = "closePopover1()">Evening</ion-radio>
+             <ion-radio ng-model="sighting.time" ng-value="'Nighttime'" ng-click = "closePopover1()">Nighttime</ion-radio>
+
+           </ion-content>
+         </ion-popover-view>
+      </script>
+
+      <script id = "popover2.html" type = "text/ng-template">
+      <style>.popover { height:350px; width:250px;}</style>
+         <ion-popover-view>
+            <ion-content>
+              <ion-radio ng-model="sighting.count" ng-value="'1'" ng-click = "closePopover2()">1</ion-radio>
+              <ion-radio ng-model="sighting.count" ng-value="'2-5'" ng-click = "closePopover2()">2-5</ion-radio>
+              <ion-radio ng-model="sighting.count" ng-value="'6-10'" ng-click = "closePopover2()">6-10</ion-radio>
+              <ion-radio ng-model="sighting.count" ng-value="'11-30'" ng-click = "closePopover2()">11-30</ion-radio>
+              <ion-radio ng-model="sighting.count" ng-value="'31-100'" ng-click = "closePopover2()">31-100</ion-radio>
+              <ion-radio ng-model="sighting.count" ng-value="'more than 100'" ng-click = "closePopover2()">more than 100</ion-radio>
+            </ion-content>
+         </ion-popover-view>
+      </script>
+
+      <script id = "popover3.html" type = "text/ng-template">
+        <style>.popover { height:350px; width:250px;}</style>
+         <ion-popover-view>
+            <ion-content>
+              <ion-radio ng-model="sighting.where" ng-value="'In a tree'" ng-click = "closePopover3()">In a tree</ion-radio>
+              <ion-radio ng-model="sighting.where" ng-value="'In a house/building'" ng-click = "closePopover3()">In a house/building</ion-radio>
+              <ion-radio ng-model="sighting.where" ng-value="'Flying around'" ng-click = "closePopover3()">Flying around</ion-radio>
+              <ion-radio ng-model="sighting.where" ng-value="'On ground'" ng-click = "closePopover3()">On ground</ion-radio>
+              <ion-radio ng-model="sighting.where" ng-value="'In a cave'" ng-click = "closePopover3()">In a cave</ion-radio>
+              <ion-radio ng-model="sighting.where" ng-value="'Other'" ng-click = "closePopover3()">Other</ion-radio>
+            </ion-content>
+         </ion-popover-view>
+      </script>
+
+      <script id = "popover4.html" type = "text/ng-template">
+        <style>.popover { height:350px; width:250px;}</style>
+         <ion-popover-view>
+            <ion-content>
+              <ion-radio ng-model="sighting.species" ng-value="'flying fox'" ng-click = "closePopover4()"><small>flying fox</small></ion-radio>
+                <ion-radio ng-model="sighting.species" ng-value="'Big brown bat'" ng-click = "closePopover4()"><small>Big brown bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Split-nosed bat'" ng-click = "closePopover4()"><small>Split-nosed bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Brown long-eared bat'" ng-click = "closePopover4()"><small>Brown long-eared bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Striped yellow-eared bat'" ng-click = "closePopover4()"><small>Striped yellow-eared bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Desert long-eared bat'" ng-click = "closePopover4()"><small>Desert long-eared bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Pygmy pipistrelle'" ng-click = "closePopover4()"><small>Pygmy pipistrelle</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Greater false vampire bat'" ng-click = "closePopover4()"><small>Greater false vampire bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Lesser false vampire bats'" ng-click = "closePopover4()"><small>Lesser false vampire bats</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Brown long-eared bat'" ng-click = "closePopover4()"><small>Brown long-eared bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Great fruit-eating bat'" ng-click = "closePopover4()"><small>Great fruit-eating bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Eastern red bat'" ng-click = "closePopover4()"><small>Eastern red bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Kittis hog-nosed bat'" ng-click = "closePopover4()"><small>Kitti's hog-nosed bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Pale spear-nosed bat'" ng-click = "closePopover4()"><small>Pale spear-nosed bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Spotted bat'" ng-click = "closePopover4()"><small>Spotted bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Hoary bat'" ng-click = "closePopover4()"><small>Hoary bat</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Spectacled flying foxes'" ng-click = "closePopover4()"><small>Spectacled flying foxes</small></ion-radio>
+              <ion-radio ng-model="sighting.species" ng-value="'Sulawesi fruit bat'" ng-click = "closePopover4()"><small>Sulawesi fruit bat</small></ion-radio>
+            </ion-content>
+         </ion-popover-view>
+      </script>
+      <div class="">
+        <div class="" style="float:left; padding-left:20px;">
+          <button class = "button " ng-click="closeModal()">Cancle</button>
+        </div>
+        <div class="" style="float:right; padding-right:20px;">
+          <button class = "button button-positive" ng-click="submitPressed()">Submit</button>
+        </div>
+      </div>
+   </ion-content>
+</ion-modal-view>
